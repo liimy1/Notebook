@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bc3fa4d-70a1-4c43-a613-28490a25ca0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Notebook.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/pojo/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/result/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/lib/javax.transaction.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wj/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wj/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/wj/src/main/java/com/SEdesign/notebook/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wj/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/wj/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +65,7 @@
       <updated>1609827397420</updated>
       <workItem from="1609827399014" duration="90000" />
       <workItem from="1609827507355" duration="271000" />
-      <workItem from="1609828365806" duration="658000" />
+      <workItem from="1609828365806" duration="928000" />
     </task>
     <servers />
   </component>
