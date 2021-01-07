@@ -1,54 +1,64 @@
 package com.SEdesign.notebook.controller;
 
-import com.SEdesign.notebook.pojo.Book;
+import com.SEdesign.notebook.entity.Book;
+import com.SEdesign.notebook.result.Result;
+import com.SEdesign.notebook.result.ResultFactory;
 import com.SEdesign.notebook.service.BookService;
-import com.SEdesign.notebook.utils.StringUtils;
+import com.SEdesign.notebook.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
+/**
+ * Library controller.
+ */
 @RestController
 public class LibraryController {
     @Autowired
     BookService bookService;
 
-    @CrossOrigin
     @GetMapping("/api/books")
-    public List<Book> list() throws Exception {
-        return bookService.list();
+    public Result listBooks() {
+        return ResultFactory.buildSuccessResult(bookService.list());
     }
 
-    @CrossOrigin
-    @PostMapping("/api/books")
-    public Book addOrUpdate(@RequestBody Book book) throws Exception {
+    @PostMapping("/api/admin/content/books")
+    public Result addOrUpdateBooks(@RequestBody @Valid Book book) {
         bookService.addOrUpdate(book);
-        return book;
+        return ResultFactory.buildSuccessResult("修改成功");
     }
 
-    @CrossOrigin
-    @PostMapping("/api/delete")
-    public void delete(@RequestBody Book book) throws Exception {
+    @PostMapping("/api/admin/content/books/delete")
+    public Result deleteBook(@RequestBody @Valid Book book) {
         bookService.deleteById(book.getId());
+        return ResultFactory.buildSuccessResult("删除成功");
     }
 
-    @CrossOrigin
-    @GetMapping("/api/categories/{cid}/books")
-    public List<Book> listByCategory(@PathVariable("cid") int cid) throws Exception {
-        if (0 != cid) {
-            return bookService.listByCategory(cid);
+    @GetMapping("/api/search")
+    public Result searchResult(@RequestParam("keywords") String keywords) {
+        if ("".equals(keywords)) {
+            return ResultFactory.buildSuccessResult(bookService.list());
         } else {
-            return list();
+            return ResultFactory.buildSuccessResult(bookService.Search(keywords));
         }
     }
 
-    @CrossOrigin
-    @PostMapping("api/covers")
-    public String coversUpload(MultipartFile file) throws Exception {
-        String folder = "D:/workspace/img";
+    @GetMapping("/api/categories/{cid}/books")
+    public Result listByCategory(@PathVariable("cid") int cid) {
+        if (0 != cid) {
+            return ResultFactory.buildSuccessResult(bookService.listByCategory(cid));
+        } else {
+            return ResultFactory.buildSuccessResult(bookService.list());
+        }
+    }
+
+    @PostMapping("/api/admin/content/books/covers")
+    public String coversUpload(MultipartFile file) {
+        String folder = "F:/img";
         File imageFolder = new File(folder);
         File f = new File(imageFolder, StringUtils.getRandomString(6) + file.getOriginalFilename()
                 .substring(file.getOriginalFilename().length() - 4));
